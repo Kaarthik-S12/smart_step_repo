@@ -1,0 +1,248 @@
+/* CattleAlert.css */
+
+/* ========== BASE CARD STYLES ========== */
+.alert-item {
+  position: relative;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  border-left: 4px solid #e0e0e0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.alert-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* ========== ALERT INDICATORS ========== */
+.alert-icon {
+  position: absolute;
+  top: 12px;  /* Changed from -8px to bring it inside */
+  right: 12px; 
+  width: 28px;
+  height: 28px;
+  background: #f72585;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(247, 37, 133, 0.4);
+  z-index: 10;
+  animation: pulse 1.5s infinite;
+}
+
+/* ========== CATTLE ID HEADING ========== */
+.id-heading {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2b2d42;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.id-heading::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #4361ee;
+  border-radius: 50%;
+}
+
+/* ========== TIME BOXES LAYOUT ========== */
+.time-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.time-card {
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.time-card:hover {
+  transform: translateY(-2px);
+}
+
+.time-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+
+.time-card p {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.time-card h4 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2b2d42;
+}
+
+/* ========== CARD TYPE STYLES ========== */
+.time-card.sensing {
+  background: rgba(67, 97, 238, 0.08);
+  border: 1px solid rgba(67, 97, 238, 0.15);
+}
+
+.time-card.sensing::after {
+  background: linear-gradient(90deg, #4361ee, #4895ef);
+}
+
+.time-card.sensing h4 {
+  color: #4361ee;
+}
+
+.time-card.resting {
+  background: rgba(247, 37, 133, 0.08);
+  border: 1px solid rgba(247, 37, 133, 0.15);
+}
+
+.time-card.resting::after {
+  background: linear-gradient(90deg, #f72585, #b5179e);
+}
+
+.time-card.resting h4 {
+  color: #f72585;
+}
+
+/* ========== ALERT STATE STYLES ========== */
+.highlighted {
+  border-left-color: #f77f00;
+  background: linear-gradient(to right, rgba(247, 127, 0, 0.03), white);
+}
+
+.highlighted .id-heading::before {
+  background-color: #f77f00;
+}
+
+.red-alert {
+  border-left-color: #f72585;
+  background: linear-gradient(to right, rgba(247, 37, 133, 0.03), white);
+  animation: alert-pulse 2s infinite;
+}
+
+.red-alert .id-heading::before {
+  background-color: #f72585;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.4);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(247, 37, 133, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(247, 37, 133, 0);
+  }
+}
+
+@keyframes alert-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.1);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(247, 37, 133, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(247, 37, 133, 0);
+  }
+}
+
+/* ========== RESPONSIVE ADJUSTMENTS ========== */
+@media (max-width: 480px) {
+  .time-boxes {
+    grid-template-columns: 1fr;
+  }
+  
+  .alert-item {
+    padding: 1.25rem;
+  }
+  
+  .time-card h4 {
+    font-size: 1.3rem;
+  }
+}
+/* Optional: Add an exclamation mark icon */
+.alert-icon::before {
+  content: "!";
+  display: block;
+  margin-top: -2px; /* Slight adjustment for perfect centering */
+}
+
+/* Enhance the pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.6);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(247, 37, 133, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(247, 37, 133, 0);
+  }
+}
+/*warning*/
+.warning-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background-color: #ff8f07; /* Amber color for warning */
+  color: #333;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-left: 0.5em;
+  animation: pulse 1s infinite;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional pulse animation for extra attention */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
