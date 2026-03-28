@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
 @RequestMapping("/alerts")
-@CrossOrigin  // React frontend, optional
+@CrossOrigin  
 public class CattleAlertController {
 
     @Autowired
