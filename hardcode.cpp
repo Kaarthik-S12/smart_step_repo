@@ -13,11 +13,9 @@ const char* serverURL = "http://192.168.94.192:8080/alerts";
 #define CHECK_INTERVAL 1000
 #define WIFI_SCAN_INTERVAL 10000
 
-
 #define TOTAL_REST_ADDR 0
 #define TOTAL_UPTIME_ADDR 8
 #define SYSTEM_START_ADDR 16
-
 
 unsigned long systemStartTime;
 unsigned long totalRestTime = 0;
@@ -45,7 +43,6 @@ void setup() {
   EEPROM.get(TOTAL_REST_ADDR, totalRestTime);
   EEPROM.get(TOTAL_UPTIME_ADDR, totalUptime);
   EEPROM.get(SYSTEM_START_ADDR, systemStartTime);
-
   systemStartTime = millis();
   EEPROM.put(SYSTEM_START_ADDR, systemStartTime);
   EEPROM.commit();
@@ -59,13 +56,11 @@ void loop() {
   unsigned long currentTime = millis();
   totalUptime = currentTime - systemStartTime;
 
-
   if (currentTime - lastCheckTime >= CHECK_INTERVAL) {
     lastCheckTime = currentTime;
 
     int16_t ax, ay, az;
     mpu.getAcceleration(&ax, &ay, &az);
-
 
      Serial.print("Raw accel: ");
     Serial.print(ax); Serial.print(", ");
@@ -76,19 +71,15 @@ void loop() {
     float y = ay / 16384.0;
     float z = az / 16384.0;
 
-
     float dx = x - lastX;
     float dy = y - lastY;
     float dz = z - lastZ;
-
 
     lastX = x;
     lastY = y;
     lastZ = z;
 
-
     double movement = sqrt(dx*dx + dy*dy + dz*dz);
-
 
     Serial.print("Movement calc: dx=");
     Serial.print(dx, 6);
@@ -166,7 +157,6 @@ void sendDataToServer() {
 
   http.begin(client, serverURL);
   http.addHeader("Content-Type", "application/json");
-
   int httpCode = http.POST(jsonData);
   if (httpCode > 0) {
     Serial.println("Data sent successfully. HTTP code: " + String(httpCode));
