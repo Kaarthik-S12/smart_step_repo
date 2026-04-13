@@ -6,6 +6,7 @@
 MPU6050 mpu;
 const char* ssid = "OnePlus Nord CE 3 Lite 5G";
 const char* password = "n2mppcda";
+//this is  local ip of my laptop
 const char* serverURL = "http://192.168.94.192:8080/alerts";
 
 
