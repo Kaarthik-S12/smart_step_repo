@@ -1,6 +1,6 @@
 /* CattleAlert.css */
 
-/* ========== BASE CARD STYLES ========== */
+/* BASE CARD STYLES */
 .alert-item {
   position: relative;
   width: 100%;
@@ -19,10 +19,10 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* ========== ALERT INDICATORS ========== */
+/* ALERT INDICATORS */
 .alert-icon {
   position: absolute;
-  top: 12px;  /* Changed from -8px to bring it inside */
+  top: 12px;  
   right: 12px; 
   width: 28px;
   height: 28px;
@@ -39,7 +39,7 @@
   animation: pulse 1.5s infinite;
 }
 
-/* ========== CATTLE ID HEADING ========== */
+/*  CATTLE ID HEADING */
 .id-heading {
   margin: 0 0 1rem 0;
   font-size: 1.1rem;
@@ -60,7 +60,7 @@
   border-radius: 50%;
 }
 
-/* ========== TIME BOXES LAYOUT ========== */
+/* TIME BOXES LAYOUT*/
 .time-boxes {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -106,7 +106,7 @@
   color: #2b2d42;
 }
 
-/* ========== CARD TYPE STYLES ========== */
+/* CARD TYPE STYLES */
 .time-card.sensing {
   background: rgba(67, 97, 238, 0.08);
   border: 1px solid rgba(67, 97, 238, 0.15);
@@ -133,7 +133,7 @@
   color: #f72585;
 }
 
-/* ========== ALERT STATE STYLES ========== */
+/* ALERT STATE STYLES */
 .highlighted {
   border-left-color: #f77f00;
   background: linear-gradient(to right, rgba(247, 127, 0, 0.03), white);
@@ -153,7 +153,7 @@
   background-color: #f72585;
 }
 
-/* ========== ANIMATIONS ========== */
+/* ANIMATIONS */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -181,7 +181,7 @@
   }
 }
 
-/* ========== RESPONSIVE ADJUSTMENTS ========== */
+/*  RESPONSIVE ADJUSTMENTS */
 @media (max-width: 480px) {
   .time-boxes {
     grid-template-columns: 1fr;
@@ -199,7 +199,7 @@
 .alert-icon::before {
   content: "!";
   display: block;
-  margin-top: -2px; /* Slight adjustment for perfect centering */
+  margin-top: -2px; 
 }
 
 /* Enhance the pulse animation */
@@ -225,7 +225,7 @@
   width: 2.5em;
   height: 2.5em;
   border-radius: 50%;
-  background-color: #ff8f07; /* Amber color for warning */
+  background-color: #ff8f07; 
   color: #333;
   font-weight: bold;
   font-size: 0.9em;
