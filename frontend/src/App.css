@@ -375,17 +375,34 @@ body {
     justify-content: center;
   }
 }
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* This pushes footer to bottom */
+.dashboard-content {
+  flex: 1;
+}
+
+/* FIXED FOOTER */
 .footer {
-  margin-top: 20px;
-  padding: 15px 0;
+  width: 100%;
   background-color: #1f2937;
-  color: #ffffff;
+  color: white;
   text-align: center;
+  padding: 15px 0;
   border-top: 2px solid #374151;
+}
+
+/* Center content inside footer */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-content p {
   margin: 4px 0;
   font-size: 14px;
-  letter-spacing: 0.5px;
 }
