@@ -96,7 +96,6 @@ function App() {
     <footer className="footer">
   <div className="footer-content">
     <p>© {new Date().getFullYear()} Cattle Monitoring System</p>
-    <p>Developed by Karthi</p>
   </div>
 </footer>
     </div>
